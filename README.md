@@ -2,16 +2,21 @@
 
 App desktop (Windows) para consulta rápida de vocabulário e revisão de idiomas, construído com Tauri + React.
 
-## Baixar o instalador Windows (sem compilar nada)
+## Baixar e instalar (link fixo, mais simples)
 
-1. No GitHub, abra a aba **Actions** do repositório.
-2. Clique no workflow **Build Windows installer**.
-3. Clique em **Run workflow** (botão à direita, branch `main`) e confirme.
-4. Espere o job `build-windows` terminar (gera o `.msi`/`.exe`).
-5. Abra a execução concluída e baixe o artefato **LexiDesk-Windows-installer** em "Artifacts".
-6. Descompacte e execute o instalador no Windows.
+1. Abra a aba **Releases** do repositório no GitHub.
+2. Na release **LexiDesk (build mais recente)** (ou numa versão `vX.Y.Z`), baixe o `.exe` (NSIS) ou `.msi`.
+3. Execute o instalador — ele cria o atalho no Menu Iniciar e já oferece para abrir o app ao terminar.
 
-Alternativa: criar uma tag `v0.1.0` e dar `git push --tags` também dispara o build automaticamente.
+Esse link não expira (diferente dos artefatos de Actions, que somem depois de um tempo) e é atualizado a cada novo build disparado.
+
+## Gerar um novo build (dispara a Release acima)
+
+1. No GitHub, abra a aba **Actions** → workflow **Build Windows installer**.
+2. Clique em **Run workflow** (branch `main`) e confirme.
+3. Quando o job `build-windows` terminar, a Release "LexiDesk (build mais recente)" é criada/atualizada automaticamente com o novo instalador.
+
+Para uma versão "oficial" com link próprio (ex. `v0.1.0`), crie a tag e dê `git push --tags` — isso gera uma Release separada, não a de build mais recente.
 
 ## Rodar em desenvolvimento (PowerShell)
 

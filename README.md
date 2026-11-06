@@ -36,7 +36,7 @@ O instalador fica em `src-tauri\target\release\bundle\msi\` e `...\bundle\nsis\`
 
 ## Status
 
-Esqueleto inicial do app (janela em branco). As funcionalidades (dicionário, revisão, mapa de vocabulário, OCR, exportações) entram em etapas, conforme o plano combinado.
+Fase 0 concluída: banco SQLite (`lexidesk.db`, migrações via `rusqlite_migration`) + navegação principal (Hoje, Revisar, Palavras, Mapa, Configurações) + comando `db_health` validando o pipeline React → Rust → SQLite. Testado de ponta a ponta (build + execução real da janela). Próximas fases: interface completa, dicionário flutuante, áudio, revisão (SM-2), OCR, exportações, configurações, bandeja/autostart, auto-update — conforme o plano combinado.
 
 ## Licenças de dados
 

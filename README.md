@@ -36,7 +36,15 @@ O instalador fica em `src-tauri\target\release\bundle\msi\` e `...\bundle\nsis\`
 
 ## Status
 
-Fase 0 concluída: banco SQLite (`lexidesk.db`, migrações via `rusqlite_migration`) + navegação principal (Hoje, Revisar, Palavras, Mapa, Configurações) + comando `db_health` validando o pipeline React → Rust → SQLite. Testado de ponta a ponta (build + execução real da janela). Próximas fases: interface completa, dicionário flutuante, áudio, revisão (SM-2), OCR, exportações, configurações, bandeja/autostart, auto-update — conforme o plano combinado.
+- **Fase 0**: banco SQLite (`lexidesk.db`) + navegação principal.
+- **Fase 1**: paleta de comandos (Ctrl+K) + tema persistente (Sistema/Claro/Escuro).
+- **Fase 2**: núcleo do dicionário — atalho global (`Ctrl+Alt+D`, Windows), janela flutuante pré-aquecida perto do cursor, lematização, busca (FTS5), card com tradução/IPA/exemplos. Dicionário atual é uma **lista semente** (~30 palavras, ver `data/dict/LICENSES.md`) — ingestão completa do Wiktionary é um próximo passo separado.
+
+Próximas fases: áudio (Piper), salvar palavras, revisão (SM-2), mapa, OCR, exportações, configurações completas, bandeja/autostart, auto-update.
+
+### O que é testável fora do Windows
+
+A captura de texto selecionado em qualquer app (`Ctrl+C` simulado) só funciona no Windows de verdade — nesta sandbox Linux ela sempre retorna "sem seleção", o que ainda permite testar o resto do fluxo (atalho global, posicionamento da janela, busca manual, lematização, card). O código Windows-specific (`src-tauri/src/capture/selection.rs`) foi validado com `cargo check --target x86_64-pc-windows-gnu` (compila limpo), mas só roda de verdade no CI (`windows-latest`) ou numa máquina Windows.
 
 ## Licenças de dados
 

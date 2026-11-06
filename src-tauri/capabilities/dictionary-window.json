@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "dictionary-window",
+  "description": "Permissões mínimas da janela flutuante do dicionário",
+  "windows": ["dictionary"],
+  "permissions": ["core:default"]
+}

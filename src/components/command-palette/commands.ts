@@ -1,10 +1,11 @@
 import type { NavigateFunction } from "react-router-dom";
 import type { Theme } from "../../lib/store";
+import { openDictionaryWindow } from "../../lib/invoke";
 
 export interface PaletteCommand {
   id: string;
   label: string;
-  group: "Navegar" | "Tema";
+  group: "Navegar" | "Tema" | "Dicionário";
   run: () => void;
 }
 
@@ -55,6 +56,14 @@ export function buildCommands({
       label: "Tema: Escuro",
       group: "Tema",
       run: () => setTheme("dark"),
+    },
+    {
+      id: "dictionary-open",
+      label: "Abrir dicionário (busca manual)",
+      group: "Dicionário",
+      run: () => {
+        void openDictionaryWindow();
+      },
     },
   ];
 }

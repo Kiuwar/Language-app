@@ -1,6 +1,10 @@
+mod dictionary;
 mod settings;
+mod window;
 
+pub use dictionary::*;
 pub use settings::*;
+pub use window::*;
 
 use tauri::State;
 

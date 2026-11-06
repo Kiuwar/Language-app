@@ -34,7 +34,7 @@ export default function CommandPalette() {
       <Command.Input placeholder="Digite um comando..." />
       <Command.List>
         <Command.Empty>Nenhum comando encontrado.</Command.Empty>
-        {(["Navegar", "Tema"] as const).map((group) => (
+        {(["Navegar", "Tema", "Dicionário"] as const).map((group) => (
           <Command.Group key={group} heading={group}>
             {commands
               .filter((command) => command.group === group)

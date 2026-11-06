@@ -26,7 +26,11 @@ pub fn run() {
 
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![commands::db_health])
+        .invoke_handler(tauri::generate_handler![
+            commands::db_health,
+            commands::get_setting,
+            commands::set_setting
+        ])
         .run(tauri::generate_context!())
         .expect("erro ao iniciar o LexiDesk");
 }

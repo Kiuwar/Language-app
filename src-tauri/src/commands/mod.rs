@@ -1,3 +1,7 @@
+mod settings;
+
+pub use settings::*;
+
 use tauri::State;
 
 use crate::state::AppState;

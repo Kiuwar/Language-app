@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import EmptyState from "../../components/ui/EmptyState";
 import { dbHealth } from "../../lib/invoke";
 
 export default function TodayScreen() {
@@ -11,14 +12,13 @@ export default function TodayScreen() {
   }, []);
 
   return (
-    <section style={{ padding: "64px 32px" }}>
-      <h1 style={{ fontSize: 24, fontWeight: 600, margin: 0 }}>Hoje</h1>
-      <p style={{ color: "var(--muted)", marginTop: 8 }}>
-        Sua meta diária e sequência de dias aparecem aqui nas próximas etapas.
-      </p>
+    <EmptyState
+      title="Hoje"
+      description="Sua meta diária e sequência de dias aparecem aqui nas próximas etapas."
+    >
       <p style={{ color: "var(--muted)", marginTop: 24, fontSize: 13 }}>
         {status}
       </p>
-    </section>
+    </EmptyState>
   );
 }

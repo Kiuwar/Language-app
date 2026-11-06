@@ -8,11 +8,17 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #1c1c1e;
     --fg: #f4f4f5;
     --muted: #a1a1aa;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1c1c1e;
+  --fg: #f4f4f5;
+  --muted: #a1a1aa;
 }
 
 * {
@@ -34,4 +40,71 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+[cmdk-overlay] {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, black 35%, transparent);
+}
+
+[cmdk-dialog] {
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(520px, 90vw);
+}
+
+[cmdk-root] {
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  overflow: hidden;
+}
+
+[cmdk-input] {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--fg) 10%, transparent);
+  background: transparent;
+  color: var(--fg);
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+[cmdk-list] {
+  max-height: 300px;
+  overflow: auto;
+  padding: 8px;
+}
+
+[cmdk-empty] {
+  padding: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+[cmdk-group-heading] {
+  padding: 8px 8px 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+[cmdk-item] {
+  padding: 8px 10px;
+  border-radius: calc(var(--radius) - 4px);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+[cmdk-item][data-selected="true"] {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
 }
